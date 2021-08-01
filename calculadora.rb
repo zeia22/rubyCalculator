@@ -1,7 +1,34 @@
 # Undefined name - Calculator
 
+#Funcao somar
+def somar(a,b)
+    a+b
+end
+
+#Funcao diminuir
+def diminuir(a,b)
+    a-b
+end
+
+#Funcao multiplicar
+def multiplicar(a,b)
+    a*b
+end
+
+#Funcao dividir
+def dividir(a,b)
+    if b != 0
+        print 'O resultado é: ', a/b
+    else
+        print 'Não é possível realizar divisão por zero. Tente novamente!'
+    end
+end
+
+loop do 
 # MENU
-puts 'Olá, seja bem vindo à Calculadora!'
+puts ''
+puts '      Olá, seja bem vindo à Calculadora!    '
+puts ''
 puts  "|-----------------------------------------|"
 puts  "|            CALCULADORA                  |"
 puts  "|-----------------------------------------|"
@@ -15,10 +42,35 @@ puts  "|   0. Sair                               |"
 puts  "|                                         |"
 print "|   Operação: "
 operacao = gets.chomp.to_i
-# INPUTS DOS NÚMEROS 
-# VALIDAÇÃO SE É DIVISÃO E O DIVISOR É ZERO
-# CLASSE CALCULADORA COM AS FUNÇÕES DE SOMA,SUBTRAÇÃO,MULTI,DIV
-# APRESENTAR O RESULTADO E PERGUNTAR SE O USUÁRIO QUER REALIZAR UMA NOVA OPERAÇÃO. 
- 
 
+if operacao == 0 
+    exit
+elsif (1..4).include?(operacao)
+    puts ''
+    puts "Digite o primeiro número e pressione enter"
+    print "--> "
+    num_1 = gets.chomp.to_f
+    puts "Digite o segundo número e pressione enter"
+    print "--> "
+    num_2 = gets.chomp.to_f
 
+    case operacao
+    when 1
+        #chamafuncaosoma
+        print 'O resultado é ', somar(num_1,num_2)
+    when 2
+        #chamafuncaosubtracao
+        print 'O resultado é ', diminuir(num_1,num_2)
+    when 3 
+        #chamamulti
+        print 'O resultado é ', multiplicar(num_1,num_2)
+    when 4 
+        #chamadiv
+        dividir(num_1,num_2)
+    end
+    
+else
+    puts 'Operação inválida, por favor escolha novamente'
+end 
+
+end
